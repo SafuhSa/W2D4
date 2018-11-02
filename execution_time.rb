@@ -33,7 +33,7 @@ def sub_sum(array)
   end
   arr.max
 end 
-p sub_sum([2, 3, -6, 7, -6, 7])
+# p sub_sum([2, 3, -6, 7, -6, 7])
 #phase 2
 def sub_sum2(array)
   arr = []
@@ -45,7 +45,7 @@ def sub_sum2(array)
     array.shift
     arr << array
   end
-  p arr
+  # p arr
   result = 0
   arr.each do |set|
     if set.reduce(:+) > result
@@ -54,10 +54,19 @@ def sub_sum2(array)
   end 
   result
 end 
-p sub_sum2([5, 3, -7])
+# p sub_sum2([5, 3, -7])
 # p sub_sum2([2, 3, -6, 7, -6, 7])
 
-
+def sub(array)
+  arr = []
+  array.each_index do |i|
+    (i...array.length).each do |j|
+      arr << array[i..j]
+    end
+  end
+  arr 
+end
+p sub([5, 3, -7])
 
 def largest_contiguous_subsum2(arr)
   largest = arr.first
